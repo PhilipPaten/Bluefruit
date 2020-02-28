@@ -56,10 +56,12 @@ function refreshDeviceList(){
 
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
+	if(device.name == "KNP"){
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
+	}
 }
 
 
@@ -103,7 +105,7 @@ function onSend(){
 	document.getElementById("sendDiv").innerHTML = "Sent: " + GemtInput.value + "<br/>";
 }
 
-
+//Virker ikke
 function disconnect() {
 	ble.disconnect(ConnDeviceId, onDisconnect, onError);
 }
