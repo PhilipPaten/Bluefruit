@@ -1,62 +1,62 @@
 /*********************************************************************
   This is an example based on nRF51822 based Bluefruit LE modules
-#include <Servo.h>
+  #include <Servo.h>
 
-Servo myservo;
+  Servo myservo;
 
-int pos = 0;
+  int pos = 0;
 
-int state; int flag=0;
+  int state; int flag=0;
 
-void setup()
+  void setup()
 
-{
+  {
 
-myservo.attach(9);
+  myservo.attach(9);
 
-myservo.write(60);
+  myservo.write(60);
 
-delay(1000); }
+  delay(1000); }
 
-void loop()
+  void loop()
 
-{
+  {
 
-if(Serial.available() > 0)
+  if(Serial.available() > 0)
 
-{
+  {
 
-state = Serial.read();
+  state = Serial.read();
 
-flag=0;
+  flag=0;
 
-} // if the state is '0' the DC motor will turn off
+  } // if the state is '0' the DC motor will turn off
 
-if (state == '0')
+  if (state == '0')
 
-{
+  {
 
-myservo.write(8);
+  myservo.write(8);
 
-delay(1000);
+  delay(1000);
 
-Serial.println("Door Locked");
+  Serial.println("Door Locked");
 
-}
+  }
 
-else if (state == '1')
+  else if (state == '1')
 
-{
+  {
 
-myservo.write(55);
+  myservo.write(55);
 
-delay(1000);
+  delay(1000);
 
-Serial.println("Door UnLocked");
+  Serial.println("Door UnLocked");
 
-}
+  }
 
-}
+  }
 ********************************************************************/
 
 #include <Arduino.h>
@@ -64,7 +64,7 @@ Serial.println("Door UnLocked");
 #include "Adafruit_BLE.h"
 #include "Adafruit_BluefruitLE_SPI.h"
 #include "Adafruit_BluefruitLE_UART.h"
-//#include <Servo.h>
+#include <Servo.h>
 #include "BluefruitConfig.h"
 
 #if SOFTWARE_SERIAL_AVAILABLE
@@ -93,13 +93,13 @@ void error(const __FlashStringHelper*err) {
   while (1);
 }
 
-/*starter servo kode delen
+/*starter servo kode delen*/
 Servo myservo;
 
 int pos = 0;
 
-int state; int flag=0;
-slut servo kode*/
+int state; int flag = 0;
+//slut servo kode
 
 void setup(void)
 {
@@ -165,6 +165,12 @@ void setup(void)
   ble.setMode(BLUEFRUIT_MODE_DATA);
 
   Serial.println(F("******************************"));
+
+  myservo.attach(9);
+
+  myservo.write(60);
+
+  delay(1000);
 }
 
 /**************************************************************************/
@@ -198,4 +204,38 @@ void loop(void)
     Serial.print((char)c);
   }
   delay(1000);
+
+  if (Serial.available() > 0)
+
+  {
+
+    state = Serial.read();
+
+    flag = 0;
+
+  } // if the state is '0' the DC motor will turn off
+
+  if (state == '0')
+
+  {
+
+    myservo.write(8);
+
+    delay(1000);
+
+    Serial.println("Door Locked");
+
+  }
+
+  else if (state == '1')
+
+  {
+
+    myservo.write(55);
+
+    delay(1000);
+
+    Serial.println("Door UnLocked");
+
+  }
 }
