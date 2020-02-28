@@ -9,24 +9,24 @@
 		<link rel = "stylesheet" type = "text/css" href = "format.css">   <!-- Link to style sheet named format.css -->
 		<script type="text/javascript" src="cordova.js"></script> 
         <script type="text/javascript" src="js/index.js"></script>
-        <title>Bluifruit</title>
+        <title style="color:white;">Smart Lock</title>
     </head>
      <body onload="onLoad()">
 		<!-- Content: div-tag with id = "content" -->
 		<div id = "content">
 			
-			<h1>Bluifruit øvelse</h1>
+			<h1 style="color:white;">Smart Lock</h1>
 			   
 			<ul id="bleDeviceList"> </ul>  
-			<button id="refreshButton" onClick = "refreshDeviceList()">Refresh</button>
+			<button id="refreshButton" onClick = "refreshDeviceList()" style="color:black;">Refresh</button>
 			<br>
-			<div id="statusDiv">Status: Disconnected</div>
-			<div id="bleId">DeviceId:</div>
+			<div id="statusDiv" style="color:white;">Status: Disconnected</div>
+			<div id="bleId" style="color:white;">DeviceId:</div>
 			<div id="debugDiv"></div>
 			<br><br>
-			<button id="ledOnButton" onclick = "data('1')">Set led ON</button>
+			<button id="ledOnButton" onclick = "data('1')" style="color:black;">LOCK DOOR</button>
 			<br><br>
-			<button id="ledOffButton" onclick = "data('0')">Set Led Off</button>
+			<button id="ledOffButton" onclick = "data('0')" style="color:black;">UNLOCK DOOR</button>
 			<br><br><br>
 
 			<input type="hidden" id="GemtInput" >
@@ -38,7 +38,7 @@
 			<br>
 			<div id="sendDiv"></div>
 			<br><br>
-			<button id="disconnectButton"onClick="disconnect()">Disconnect</button>
+			<button id="disconnectButton"onClick="disconnect()" style="color:black;">Disconnect</button>
 			<div id="receiveDiv"></div>
 		</div>
     </body>

@@ -1,5 +1,5 @@
 body{
-	background-color: green;
+	background-color: navy;
 }	
 img{
 	width: 100%;	
@@ -13,6 +13,7 @@ img{
 #content {
 	width: 75%;
 	margin: auto;
+	text-color: white;
 }
 
 #bleDeviceList{

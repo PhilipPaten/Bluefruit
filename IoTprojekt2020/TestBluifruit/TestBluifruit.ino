@@ -93,7 +93,7 @@ void setup(void)
   }
 
   //Give module a new name
-  ble.println("AT+GAPDEVNAME=TLONE"); // named TLONE
+  ble.println("AT+GAPDEVNAME=KNP"); // KNP
 
   // Check response status
   ble.waitForOK();
