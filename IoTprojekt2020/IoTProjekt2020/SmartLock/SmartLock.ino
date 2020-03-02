@@ -1,64 +1,3 @@
-/*********************************************************************
-  This is an example based on nRF51822 based Bluefruit LE modules
-  #include <Servo.h>
-
-  Servo myservo;
-
-  int pos = 0;
-
-  int state; int flag=0;
-
-  void setup()
-
-  {
-
-  myservo.attach(9);
-
-  myservo.write(60);
-
-  delay(1000); }
-
-  void loop()
-
-  {
-
-  if(Serial.available() > 0)
-
-  {
-
-  state = Serial.read();
-
-  flag=0;
-
-  } // if the state is '0' the DC motor will turn off
-
-  if (state == '0')
-
-  {
-
-  myservo.write(8);
-
-  delay(1000);
-
-  Serial.println("Door Locked");
-
-  }
-
-  else if (state == '1')
-
-  {
-
-  myservo.write(55);
-
-  delay(1000);
-
-  Serial.println("Door UnLocked");
-
-  }
-
-  }
-********************************************************************/
-
 #include <Arduino.h>
 #include <SPI.h>
 #include "Adafruit_BLE.h"
@@ -92,14 +31,9 @@ void error(const __FlashStringHelper*err) {
   Serial.println(err);
   while (1);
 }
-
-/*starter servo kode delen*/
 Servo myservo;
 
 int pos = 0;
-
-int state; int flag = 0;
-//slut servo kode
 
 void setup(void)
 {
@@ -173,49 +107,24 @@ void setup(void)
   delay(1000);
 }
 
-/**************************************************************************/
-/*!
-    @brief  Constantly poll for new command or response data
-*/
-/**************************************************************************/
 void loop(void)
 {
   // Check for user input
   char n, inputs[BUFSIZE + 1];
-
-  if (Serial.available())
-  {
-    n = Serial.readBytes(inputs, BUFSIZE);
-    inputs[n] = 0;
-    // Send characters to Bluefruit
-    Serial.print("Sending: ");
-    Serial.println(inputs);
-
-    // Send input data to host via Bluefruit
-    ble.print(inputs);
-  }
-  if (ble.available()) {
-    Serial.print("* "); Serial.print(ble.available()); Serial.println(F(" bytes available from BTLE"));
-  }
-  // Echo received data
+  int c;
   while ( ble.available() )
   {
-    int c = ble.read();
+    c = ble.read();
     Serial.print((char)c);
+
+   //opret en string ordre
+   //ordre += ((char)c);
+   //
+
+
   }
-  delay(1000);
 
-  if (Serial.available() > 0)
-
-  {
-
-    state = Serial.read();
-
-    flag = 0;
-
-  } // if the state is '0' the DC motor will turn off
-
-  if (state == '0')
+  if (c == '0')
 
   {
 
@@ -227,15 +136,18 @@ void loop(void)
 
   }
 
-  else if (state == '1')
+  else if (c == '1')
 
   {
 
-    myservo.write(55);
+    myservo.write(155);
 
     delay(1000);
 
     Serial.println("Door UnLocked");
 
   }
+    
+  delay(1000);
+
 }
