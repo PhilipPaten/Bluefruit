@@ -10,12 +10,7 @@
         <title style="color:white;">Password Protected</title>
     </head>
      <body>
-	 <SCRIPT>
-	 
-	 
-	 
-	 
-	 
+	 <SCRIPT>	 
 function passWord() {
 var testV = 1;
 var brug1 = prompt('Indtast brugernavn', ' ');
@@ -23,7 +18,7 @@ var pass1 = prompt('Indtast kodeord',' ');
 while (testV < 3) {
 if (!pass1)
 history.go(-1);
-if (pass1.toLowerCase() == "letmein" && brug1.toLowerCase() == "hejsa") {
+if (pass1.toLowerCase() == "skerder" && brug1.toLowerCase() == "hejsa") {
 alert('Korrekt');
 window.open('hjemmeside.html');
 break;
@@ -36,10 +31,44 @@ if (pass1.toLowerCase()!="password" & testV ==3)
 history.go(-1);
 return " ";
 }
+
+function getData(){       //this will read file and send information to other function
+       var xmlhttp;
+
+       if (window.XMLHttpRequest) {
+           xmlhttp = new XMLHttpRequest();               
+       }           
+       else {               
+           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");               
+       }
+
+       xmlhttp.onreadystatechange = function () {               
+           if (xmlhttp.readyState == 4) {                   
+             var lines = xmlhttp.responseText;    //*here we get all lines from text file*
+
+             intoArray(lines);     *//here we call function with parameter "lines*"                   
+           }               
+       }
+
+       xmlhttp.open("GET", "brugernavne.txt", true);
+       xmlhttp.send();    
+}
+
+function intoArray (lines) {
+   // splitting all text data into array "\n" is splitting data from each new line
+   //and saving each new line as each element*
+
+   var lineArr = lines.split('\n'); 
+
+   //just to check if it works output lineArr[index] as below
+   document.write(lineArr[2]);         
+   document.write(lineArr[3]);
+}
+
 </SCRIPT>
 <CENTER>
 <FORM>
-<input type="button" value="Få adgang til hemmelige sted" onClick="passWord()">
+<input type="button" value="Få adgang til det hemmelige sted" onClick="passWord()">
 </FORM>
 </CENTER>
     </body>
