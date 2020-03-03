@@ -6,49 +6,55 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">	
-		<script type="text/javascript" src="cordova.js"></script> 
+		<link rel = "stylesheet" type = "text/css" href = "knapcss.css">
         <title style="color:white;">Password Protected</title>
-    </head>
-     <body>
-	 <SCRIPT>	 
-	 function getData(){       //this will read file and send information to other function
-       var xmlhttp;
+	
+		<SCRIPT>	
+	 /*Lav en server på 000webhost. */
+	 
+			function passWord() {
+			var testV = 1;
+			var brug1 = prompt('Indtast brugernavn', ' ');
+			var pass1 = prompt('Indtast kodeord',' ');
+			while (testV < 3) {
+			if (!pass1)
+			history.go(-1);
+			if (pass1.toLowerCase() == "skerder" && brug1.toLowerCase() == "hejsa") {
+			alert('Korrekt');
+			window.open('hjemmeside.html');
+			break;
+			}
+			testV+=1;
+			var pass1 =
+			prompt('Forkert, brugernavn eller kodeord ikke korrekt','Password');
+			}
+			if (pass1.toLowerCase()!="password" & testV ==3)
+			history.go(-1);
+			return " ";
+			}
+			
+			
+			/*var $button = document.querySelector('.button');
+$button.addEventListener('click', function() {
+  var duration = 0.3,
+      delay = 0.08;
+  TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
+  TweenMax.to($button, duration, {scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay});
+  TweenMax.to($button, duration * 1.25, {scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
+});*/
+		</SCRIPT>
+   </head>
+   <body>	
+	
+	<CENTER>
+	<link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
 
-       if (window.XMLHttpRequest) {
-           xmlhttp = new XMLHttpRequest();               
-       }           
-       else {               
-           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");               
-       }
-
-       xmlhttp.onreadystatechange = function () {               
-           if (xmlhttp.readyState == 4) {                   
-             var lines = xmlhttp.responseText;    //*here we get all lines from text file*
-
-             intoArray(lines);     *//here we call function with parameter "lines*"                   
-           }               
-       }
-
-       xmlhttp.open("GET", "brugernavne.txt", "passwords.txt", true);
-       xmlhttp.send();    
-}
-
-function intoArray (lines) {
-   // splitting all text data into array "\n" is splitting data from each new line
-   //and saving each new line as each element*
-
-   var lineArr = lines.split('\n'); 
-
-   //just to check if it works output lineArr[index] as below
-   document.write(lineArr[2]);         
-   document.write(lineArr[3]);
-}
-</SCRIPT>
-<CENTER>
-<FORM>
-<input type="button" value="Få adgang til det hemmelige sted" onClick="passWord()">
-</FORM>
-</CENTER>
-    </body>
+		<div class="button" onClick="passWord()">
+			<p>Få adgang til det hemnmelige sted</p>
+		</div>
+		
+	</CENTER>
+	
+   </body>
 </html>
 		
