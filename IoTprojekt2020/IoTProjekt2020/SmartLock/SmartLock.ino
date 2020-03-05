@@ -140,7 +140,7 @@ void loop(void)
 
   {
 
-    myservo.write(155);
+    myservo.write(100);
 
     delay(1000);
 
