@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-//I dette dokument benytter vi os af lones standard kode hvor vi kalder cordova plugin så vi kan bruge PhoneGap og gør det smartphone compatible.
 <widget id="dk.kea.testBluifruit5" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 
     <name>Smart Lock</name>
