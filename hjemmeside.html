@@ -6,27 +6,31 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">	
-		<link rel = "stylesheet" type = "text/css" href = "format.css">   <!-- Link to style sheet named format.css -->
-		<script type="text/javascript" src="cordova.js"></script> 
-        <script type="text/javascript" src="js/index.js"></script>
+		<link rel = "stylesheet" type = "text/css" href = "format.css">   <!-- Link til CSS dokument navngivet format.css -->
+		<script type="text/javascript" src="cordova.js"></script> 		<!-- Link til javascript plugin cordova, som bruges til PhoneGap -->
+        <script type="text/javascript" src="js/index.js"></script>		<!-- Link til javascript dokumentet -->
+		<!-- Her angiver vi titlen af hjemmesiden til Smart Lock -->
         <title style="color:white;">Smart Lock</title>
     </head>
      <body onload="onLoad()">
 	 <div style="background-image:url('lockpicture.jfif');">
 		<!-- Content: div-tag with id = "content" -->
 		<div id = "content">
-			
-			<h1 style="color:white;">Smart Lock</h1>	
+			<!-- Her laver vi en header der hedder Smart Lock med hvid skrift -->
+			<h1 style="color:white;">Smart Lock</h1>
 			   
-			<ul id="bleDeviceList"> </ul>  
+			<ul id="bleDeviceList"> </ul>  <!-- Kalder en funktion i javascript dokumentet -->
+			<!-- Nedenunder kalder vi funktionen refreshDeviceList når knappen trykkes -->
 			<button id="refreshButton" onClick = "refreshDeviceList()" style="color:black;">Refresh</button>
 			<br>
 			<div id="statusDiv" style="color:white;">Status: Disconnected</div>
 			<div id="bleId" style="color:white;">DeviceId:</div>
 			<div id="debugDiv"></div>
 			<br><br>
+			<!-- Nedenunder har noget at gøre med det brugerinput som appen får gennem knappen som så bruges i arduino koden til at åbne døren -->
 			<button id="ledOnButton" onclick = "data('1')" style="color:black;">UNLOCK DOOR</button>
 			<br><br>
+			<!-- Det samme, her låser man døren -->
 			<button id="ledOffButton" onclick = "data('0')" style="color:black;">LOCK DOOR</button>
 			<br><br><br>
 
@@ -39,6 +43,7 @@
 			<br>
 			<div id="sendDiv"></div>
 			<br><br>
+			<!-- Her kalder vi en funktion disconnect når man trykker på knappen -->
 			<button id="disconnectButton"onClick="disconnect()" style="color:black;">Disconnect</button>
 			<div id="receiveDiv"></div>
 		</div>

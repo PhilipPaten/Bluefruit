@@ -1,16 +1,14 @@
 body{
+	/* Ændrer baggrunds farve */
 	background: #f1c40f;
 }	
 img{
 	width: 100%;	
 }
 
-/* The content div soround
-  * every thing in the body
-  * The css make content  smaller than the body itself
-  * and centret.
-  */
 #content {
+	/* Her angiver vi bredden af det content der vises til at være 75% af skærmen,
+	ændrer textcolor til hvid og sætter margin til auto, altså centrerer det */
 	width: 75%;
 	margin: auto;
 	text-color: white;
@@ -23,10 +21,11 @@ img{
 	
 }
 #list{
-	background-color: red;
+	/* Her viser viser vi bluetooth enheden i hvid skrift. */
+	text-color: white;
 }
 
-/* width will be 100% of content */
+/* I denne del angiver vi bredden på knapperne til at være 100% af skærmen. */
 #refreshButton{
 	width: 100%;
 }

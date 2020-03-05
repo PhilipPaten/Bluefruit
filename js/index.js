@@ -3,6 +3,7 @@
 
 
 // ASCII only
+//Følgende dokument er Lones standard kode
 function bytesToString(buffer) {
     return String.fromCharCode.apply(null, new Uint8Array(buffer));
 }
@@ -55,8 +56,8 @@ function refreshDeviceList(){
 
 
 function onDiscoverDevice(device){
-	//Make a list in html and show devises
-	if(device.name == "KNP"){
+	//I denne funktion har vi gjort så det kun er bluetooth enheden med navnet KNP (som er vores) der bliver vist.
+	if(device.name == "KNP"){ //Hvis device.name er KNP lav en liste og print det ud på HTML siden.
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;

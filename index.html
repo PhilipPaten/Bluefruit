@@ -5,43 +5,38 @@
         <meta name="format-detection" content="telephone=no" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Her linker vi til knappens css dokument -->
 		<link rel = "stylesheet" type = "text/css" href = "knapcss.css">
+		<!-- Her sætter titlen til Password Protected -->
         <title style="color:white;">Password Protected</title>
 	
 		<SCRIPT>	
-	 /*Lav en server på 000webhost. */
-	 
+	
+	 <!-- Her starter password og brugernavn scriptet vi laver en funktion passWord -->
 			function passWord() {
-			var testV = 1;
-			var brug1 = prompt('Indtast brugernavn', ' ');
-			var pass1 = prompt('Indtast kodeord',' ');
-			while (testV < 3) {
+			var testV = 1; <!-- Laver en variabel testV som et sat til 1, dette har noget at gøre med hvor mange forsøg man har -->
+			var brug1 = prompt('Indtast brugernavn', ' '); <!-- Vi beder om et brugernavn i en prompt -->
+			var pass1 = prompt('Indtast kodeord',' ');		<!-- Vi beder om et password i en prompt -->
+			while (testV < 3) { <!-- Når dine forsøg er mindre en 3 -->
 			if (!pass1)
 			history.go(-1);
-			if (pass1.toLowerCase() == "skerder" && brug1.toLowerCase() == "hejsa") {
+			if (pass1.toLowerCase() == "skerder" && brug1.toLowerCase() == "hejsa") { 
+			<!-- Hvis password er skerder og brugernavn er hejsa alerter den med korrekt -->
 			alert('Korrekt');
+			<!-- Så benytter vi os af window.open sender sender brugeren videre til hjemmeside.html -->
 			window.open('hjemmeside.html');
+			<!-- breaker while sætningen her hvis den ovenstående if sætning er korrekt -->
 			break;
 			}
-			testV+=1;
-			var pass1 =
+			testV+=1; <!-- Hvis ikke password er korrekt plus testV med en så de får et mindre forsøg -->
+			var pass1 = <!-- Sætter pass1 variablen -->
 			prompt('Forkert, brugernavn eller kodeord ikke korrekt','Password');
 			}
 			if (pass1.toLowerCase()!="password" & testV ==3)
 			history.go(-1);
 			return " ";
 			}
-			
-			
-			/*var $button = document.querySelector('.button');
-$button.addEventListener('click', function() {
-  var duration = 0.3,
-      delay = 0.08;
-  TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
-  TweenMax.to($button, duration, {scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay});
-  TweenMax.to($button, duration * 1.25, {scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
-});*/
 		</SCRIPT>
    </head>
    <body>	
